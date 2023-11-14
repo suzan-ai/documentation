@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for the Suzan AI Shield API"
         >
-    <title>API Reference</title>
+    <title>Suzan AI Shield API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-5c0429b4.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -303,12 +303,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-45dea8cb.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -319,84 +316,140 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#concepts" class="toc-h2 toc-link" data-title="Concepts">Concepts</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#quick-example" class="toc-h2 toc-link" data-title="Quick example">Quick example</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#on-premise" class="toc-h2 toc-link" data-title="On premise">On premise</a>
+                  </li>
+                  <li>
+                    <a href="#multi-tenant" class="toc-h2 toc-link" data-title="Multi tenant">Multi tenant</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#shield" class="toc-h1 toc-link" data-title="Shield">Shield</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-projects" class="toc-h2 toc-link" data-title="Get all projects">Get all projects</a>
+                  </li>
+                  <li>
+                    <a href="#get-and-filter-projects" class="toc-h2 toc-link" data-title="Get and filter projects">Get and filter projects</a>
+                  </li>
+                  <li>
+                    <a href="#metrics-shield" class="toc-h2 toc-link" data-title="Metrics Shield">Metrics Shield</a>
+                  </li>
+                  <li>
+                    <a href="#datasets-shield" class="toc-h2 toc-link" data-title="Datasets Shield">Datasets Shield</a>
+                  </li>
+                  <li>
+                    <a href="#models-shield" class="toc-h2 toc-link" data-title="Models Shield">Models Shield</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://suzan.ai/get_dev_key/'>Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Suzan AI Shield API! </p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Suzan AI is the 1st European platform for semi-automated AI governance and compliance. </p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>You can use our API to access Suzan AI API endpoints and unlock your projects from the legal department.</p>
+
+<!-- Need help ? contact our support at support@suzan.ai or join our BLA at BLA  --> 
+
+<p>We thank <a href="https://github.com/slatedocs/slate">Slate</a> for their amazing open source documentation tool.</p>
+<h1 id='getting-started'>Getting Started</h1><h2 id='concepts'>Concepts</h2><h3 id='you-can-use-our-api-when-you-want-to-access-probe-and-validate-your-ai-systems'>You can use our api when you want to access, probe, and validate your ai systems.</h3><h3 id='each-legal-requirement-will-necessitate-a-dedicated-probe-at-some-point-in-your-system'>Each legal requirement will necessitate a dedicated probe at some point in your system.</h3><h3 id='you-will-be-able-to-store-the-metrics-needed-biais-co2-with-one-function-call'>You will be able to store the metrics needed (biais,co2,...) with one function call.</h3>
+<p><img src="images/flow-core-d11b8bb2.png" alt="" /></p>
+<h2 id='quick-example'>Quick example</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="s">"suz_project_key_*****"</span> 
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">metric_id</span> <span class="o">=</span> <span class="s">"suz_metric_key_****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+
+<span class="n">probe</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">project_id</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"production"</span><span class="p">)</span>
+
+<span class="n">test_input_pii</span> <span class="o">=</span> <span class="s">"my name is Suzan"</span>
+<span class="k">if</span> <span class="n">custom_pii_dector</span><span class="p">(</span><span class="n">test_input_pii</span><span class="p">):</span>
+    <span class="n">probe</span><span class="p">.</span><span class="n">add_one</span><span class="p">(</span><span class="n">metric_id</span><span class="p">)</span> <span class="c1"># return 1 
+</span>    <span class="c1"># Alternative :
+</span>    <span class="c1"># value = probe.get_value(metric_id) 
+</span>    <span class="c1"># probe.set_value(value + 1)
+</span></code></pre></div><h3 id='i-want-to-implement-a-large-language-model-to-generate-emails-to-planify-my-meetings-but-before-deploying-to-production-my-legal-team-need-me-to-log-the-number-of-queries-that-contain-a-personal-identifiable-information-pii'>I want to implement a large language model to generate emails to planify my meetings. But before deploying to production, my legal team need me to log the number of queries that contain a Personal Identifiable Information (PII).</h3>
+<p><img src="images/example_uc-830eb368.png" alt="" /></p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
 </code></pre></div>
+<!--
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here" \
+  -H "Authorization: suz_prodkey_*****" --> 
+
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>suz_prodkey_*****</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Suzan AI uses API keys to allow access to the API. You can register a new Suzan AI API key at our <a href="http://suzan.ai/login/">developer portal</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>You will be able to generate <strong>test keys</strong> &quot;suz_testkey_...&quot; and <strong>production keys</strong> &quot;suz_prodkey_...&quot; </p>
+<h2 id='on-premise'>On premise</h2>
+<blockquote>
+<p>On premise instance</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_..."</span>
+<span class="n">custom_url</span><span class="o">=</span><span class="s">"suzanservice.yourcompany.com"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="n">url</span><span class="o">=</span><span class="n">custom_url</span><span class="p">)</span> 
+</code></pre></div>
+<p>On premise instances are useful if it is part of your requirements. 
+We do not offer on premise instance by default, you need to contact us to get access to this ressource. 
+If you have an <strong>on premise</strong> instance you can change the url in the authorize parameter.</p>
+<h2 id='multi-tenant'>Multi tenant</h2>
+<blockquote>
+<p>On a specific tenant </p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_..."</span>
+<span class="n">tenant_id</span><span class="o">=</span><span class="s">"suz_tenant_..."</span>
+<span class="n">custom_url</span><span class="o">=</span><span class="s">"suzanservice.yourcompany.com"</span>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span><span class="n">tenant</span><span class="o">=</span><span class="n">tenant_id</span><span class="p">,</span><span class="n">url</span><span class="o">=</span><span class="n">custom_url</span><span class="p">)</span> 
+</code></pre></div>
+<p>For very specific use-cases, you will need to separate your suzan services within your entities. </p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>As a developer, you will be assigned a specific tenant to push your metrics, ensuring that there is no contamination from other entities or services. This dedicated tenant will allow you to have complete control over your metrics and ensure accurate measurement of your application&#39;s performance.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>I the case of a multi-tenant configuration you must specify your tenant id. </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<p><img src="images/multi-tenant-41234dde.png" alt="" /></p>
+<h1 id='shield'>Shield</h1><h2 id='get-all-projects'>Get all projects</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+<span class="n">projects</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">get_projects</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -404,194 +457,152 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notOnlyAWrapper"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lacking data"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"details"</span><span class="p">:[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magic"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"details"</span><span class="p">:[</span><span class="err">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p>Projects are either created by the legal department or you can create them and then push the metrics. </p>
+
+<p>To get started you can list all the projects.</p>
+
+<!--
+
+This endpoint retrieves all projects.
+
+### HTTP Request
+
+`GET http://example.com/api/kittens`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+-->
+<h2 id='get-and-filter-projects'>Get and filter projects</h2>
+<p>Projects have different <strong>status</strong> to specify if the project has been checked or not. </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p>Projects have different <strong>mode</strong> to specify if the logged metrics are test purposes or in production. </p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+<span class="n">projects</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">get_projects</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">"dev"</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notOnlyAWrapper"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lacking data"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+<span class="n">projects</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">get_projects</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s">"good"</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magic"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
+<!-- 
+This endpoint retrieves a specific kitten.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+### HTTP Request
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+`GET http://example.com/kittens/<ID>`
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+-->
+<h2 id='metrics-shield'>Metrics Shield</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="s">"suz_project_key_*****"</span> 
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">metric_id</span> <span class="o">=</span> <span class="s">"suz_metric_key_****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+
+<span class="n">probe</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">project_id</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"production"</span><span class="p">)</span>
+
+<span class="c1"># list metrics 
+</span><span class="n">probe</span><span class="p">.</span><span class="n">get_metrics</span><span class="p">(</span><span class="n">project_id</span><span class="p">)</span> 
+
+<span class="c1"># get value 
+</span><span class="n">probe</span><span class="p">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">metric_id</span><span class="p">)</span> 
+<span class="c1"># or 
+</span><span class="n">probe</span><span class="p">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">metric_id</span><span class="p">,</span><span class="n">history</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+
+
+<span class="c1">#set value 
+</span><span class="n">probe</span><span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">metric_id</span><span class="p">,</span><span class="n">value</span><span class="p">)</span> 
+
+</code></pre></div><h3 id='get-metrics'>Get metrics</h3>
+<p>Given a project id, you can get all the metrics associated.</p>
+<h3 id='get-value'>Get value</h3>
+<p>Given a metric id, you can recover the last given value or a sample of the last values given by history, by default = 1.</p>
+<h3 id='set-value'>Set value</h3>
+<p>Given a metric id, you can set it value by using the set_value function.</p>
+<h2 id='datasets-shield'>Datasets Shield</h2>
+<p>Logging dataset can be tricky because of their size and their ever changing nature. 
+In some case, you will need to store the full dataset. This can be done using the &quot;store=True&quot; attribute. 
+Often, only the hash of the dataset will be need and you can select store=False in the function. </p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="s">"suz_project_key_*****"</span> 
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">metric_id</span> <span class="o">=</span> <span class="s">"suz_metric_key_****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+
+<span class="n">probe</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">project_id</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"production"</span><span class="p">)</span>
+
+<span class="n">probe</span><span class="p">.</span><span class="n">log_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">store</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># if store = False, only store the hash
+</span>
+</code></pre></div><h2 id='models-shield'>Models Shield</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">shield</span>
+<span class="n">project_id</span> <span class="o">=</span> <span class="s">"suz_project_key_*****"</span> 
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">metric_id</span> <span class="o">=</span> <span class="s">"suz_metric_key_****"</span>
+<span class="n">shield</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> 
+<span class="n">probe</span> <span class="o">=</span> <span class="n">shield</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">project_id</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"production"</span><span class="p">)</span>
+<span class="n">probe</span><span class="p">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<p>When models and model weights are needed, you can push them using the log_model method. </p>
 
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+<p>We are compatible with most of the main machine learning / deep learning frameworks: Pytorch, TensorFlow, scikit-learn,... </p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
