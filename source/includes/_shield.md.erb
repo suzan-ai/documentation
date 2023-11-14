@@ -1,0 +1,245 @@
+
+# Authentication
+
+> To authorize, use this code:
+
+```python
+
+from SuzanAI import shield
+secret = "suz_prodkey_*****"
+shield.authorize(secret) 
+```
+
+<!--
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here" \
+  -H "Authorization: suz_prodkey_*****" --> 
+
+
+> Make sure to replace `suz_prodkey_*****` with your API key.
+
+Suzan AI uses API keys to allow access to the API. You can register a new Suzan AI API key at our [developer portal](http://suzan.ai/login/).
+
+You will be able to generate **test keys** "suz_testkey_..." and **production keys** "suz_prodkey_..." 
+
+## On premise 
+> On premise instance
+
+```python
+
+from SuzanAI import shield
+secret = "suz_prodkey_..."
+custom_url="suzanservice.yourcompany.com"
+shield.authorize(secret,url=custom_url) 
+```
+On premise instances are useful if it is part of your requirements. 
+We do not offer on premise instance by default, you need to contact us to get access to this ressource. 
+If you have an **on premise** instance you can change the url in the authorize parameter.
+
+
+## Multi tenant 
+> On a specific tenant 
+
+```python
+
+from SuzanAI import shield
+secret = "suz_prodkey_..."
+tenant_id="suz_tenant_..."
+custom_url="suzanservice.yourcompany.com"
+
+shield.authorize(secret,tenant=tenant_id,url=custom_url) 
+```
+
+For very specific use-cases, you will need to separate your suzan services within your entities. 
+
+As a developer, you will be assigned a specific tenant to push your metrics, ensuring that there is no contamination from other entities or services. This dedicated tenant will allow you to have complete control over your metrics and ensure accurate measurement of your application's performance.
+
+
+I the case of a multi-tenant configuration you must specify your tenant id. 
+
+<%= image_tag "images/multi-tenant.png" %>
+
+# Shield
+
+## Get all projects
+
+
+```python
+from SuzanAI import shield
+secret = "suz_prodkey_*****"
+shield.authorize(secret) 
+projects = shield.get_projects()
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "notOnlyAWrapper",
+    "mode": "dev",
+    "status": "lacking data",
+    "details":[...]
+  },
+  {
+    "id": 2,
+    "name": "magic",
+    "mode": "prod",
+    "status": "good",
+    "details":[...]
+  }
+]
+```
+Projects are either created by the legal department or you can create them and then push the metrics. 
+
+To get started you can list all the projects.
+
+<!--
+
+This endpoint retrieves all projects.
+
+### HTTP Request
+
+`GET http://example.com/api/kittens`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+
+-->
+
+## Get and filter projects
+Projects have different **status** to specify if the project has been checked or not. 
+
+Projects have different **mode** to specify if the logged metrics are test purposes or in production. 
+
+
+
+```python
+from SuzanAI import shield
+secret = "suz_prodkey_*****"
+shield.authorize(secret) 
+projects = shield.get_projects(mode="dev")
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "notOnlyAWrapper",
+    "mode": "dev",
+    "status": "lacking data"
+  }
+]
+```
+
+```python
+from SuzanAI import shield
+secret = "suz_prodkey_*****"
+shield.authorize(secret) 
+projects = shield.get_projects(status="good")
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 2,
+    "name": "magic",
+    "mode": "prod",
+    "status": "good"
+  }
+]
+```
+
+<!-- 
+This endpoint retrieves a specific kitten.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTP Request
+
+`GET http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+-->
+
+## Metrics Shield
+
+```python
+from SuzanAI import shield
+project_id = "suz_project_key_*****" 
+secret = "suz_prodkey_*****"
+metric_id = "suz_metric_key_****"
+shield.authorize(secret) 
+
+probe = shield.load(project_id,mode="production")
+
+# list metrics 
+probe.get_metrics(project_id) 
+
+# get value 
+probe.get_value(metric_id) 
+# or 
+probe.get_value(metric_id,history=10) 
+
+
+#set value 
+probe.set_value(metric_id,value) 
+
+```
+
+### Get metrics 
+ Given a project id, you can get all the metrics associated.
+### Get value 
+Given a metric id, you can recover the last given value or a sample of the last values given by history, by default = 1.
+### Set value
+Given a metric id, you can set it value by using the set_value function.
+
+## Datasets Shield
+Logging dataset can be tricky because of their size and their ever changing nature. 
+In some case, you will need to store the full dataset. This can be done using the "store=True" attribute. 
+Often, only the hash of the dataset will be need and you can select store=False in the function. 
+
+```python
+from SuzanAI import shield
+project_id = "suz_project_key_*****" 
+secret = "suz_prodkey_*****"
+metric_id = "suz_metric_key_****"
+shield.authorize(secret) 
+
+probe = shield.load(project_id,mode="production")
+
+probe.log_dataset(name,data,store=True) # if store = False, only store the hash
+
+```
+
+## Models Shield
+
+```python
+from SuzanAI import shield
+project_id = "suz_project_key_*****" 
+secret = "suz_prodkey_*****"
+metric_id = "suz_metric_key_****"
+shield.authorize(secret) 
+probe = shield.load(project_id,mode="production")
+probe.log_model(model=model)
+```
+When models and model weights are needed, you can push them using the log_model method. 
+
+We are compatible with most of the main machine learning / deep learning frameworks: Pytorch, TensorFlow, scikit-learn,... 

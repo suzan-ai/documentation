@@ -1,0 +1,30 @@
+# Getting Started 
+## Concepts 
+### You can use our api when you want to access, probe, and validate your ai systems.
+### Each legal requirement will necessitate a dedicated probe at some point in your system. 
+### You will be able to store the metrics needed (biais,co2,...) with one function call. 
+
+<%= image_tag "images/flow-core.png" %>
+## Quick example 
+```python
+from SuzanAI import shield
+project_id = "suz_project_key_*****" 
+secret = "suz_prodkey_*****"
+metric_id = "suz_metric_key_****"
+shield.authorize(secret) 
+
+probe = shield.load(project_id,mode="production")
+
+test_input_pii = "my name is Suzan"
+if custom_pii_dector(test_input_pii):
+    probe.add_one(metric_id) # return 1 
+    # Alternative :
+    # value = probe.get_value(metric_id) 
+    # probe.set_value(value + 1)
+```
+
+
+### I want to implement a large language model to generate emails to planify my meetings. But before deploying to production, my legal team need me to log the number of queries that contain a Personal Identifiable Information (PII).
+<%= image_tag "images/example_uc.png" %>
+
+
