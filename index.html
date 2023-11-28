@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Suzan AI Shield API"
+            content="Documentation for the Suzan AI APIs"
         >
     <title>Suzan AI Shield API Reference</title>
 
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -306,6 +306,7 @@
       <img src="images/logo-45dea8cb.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -357,6 +358,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#firewall" class="toc-h1 toc-link" data-title="Firewall">Firewall</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="#filter-behaviour-configuration" class="toc-h2 toc-link" data-title="Filter behaviour configuration">Filter behaviour configuration</a>
+                  </li>
+                  <li>
+                    <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://suzan.ai/get_dev_key/'>Sign Up for a Developer Key</a></li>
@@ -366,13 +381,14 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Suzan AI Shield API! </p>
+<p>Welcome to the Suzan AI API! </p>
 
 <p>Suzan AI is the 1st European platform for semi-automated AI governance and compliance. </p>
 
 <p>You can use our API to access Suzan AI API endpoints and unlock your projects from the legal department.</p>
 
-<!-- Need help ? contact our support at support@suzan.ai or join our BLA at BLA  --> 
+<p>In addition, you can use our LLM firewall API for your custom chat services. 
+&lt;!-- Need help ? contact our support at support@suzan.ai or join our BLA at BLA  --&gt; </p>
 
 <p>We thank <a href="https://github.com/slatedocs/slate">Slate</a> for their amazing open source documentation tool.</p>
 <h1 id='getting-started'>Getting Started</h1><h2 id='concepts'>Concepts</h2><h3 id='you-can-use-our-api-when-you-want-to-access-probe-and-validate-your-ai-systems'>You can use our api when you want to access, probe, and validate your ai systems.</h3><h3 id='each-legal-requirement-will-necessitate-a-dedicated-probe-at-some-point-in-your-system'>Each legal requirement will necessitate a dedicated probe at some point in your system.</h3><h3 id='you-will-be-able-to-store-the-metrics-needed-biais-co2-with-one-function-call'>You will be able to store the metrics needed (biais,co2,...) with one function call.</h3>
@@ -598,11 +614,90 @@ Often, only the hash of the dataset will be need and you can select store=False 
 <p>When models and model weights are needed, you can push them using the log_model method. </p>
 
 <p>We are compatible with most of the main machine learning / deep learning frameworks: Pytorch, TensorFlow, scikit-learn,... </p>
+<h1 id='firewall'>Firewall</h1><h2 id='introduction'>Introduction</h2>
+<p>You can use our LLM firewall to filter the data that you send to your llm providers. 
+We can also provide dynamic censorship, where the data that had been replaced in the input is also replace in the output. </p>
 
+<p><img src="images/firewall_high_level-3ec3d6bb.png" alt="" /></p>
+<h2 id='filter-behaviour-configuration'>Filter behaviour configuration</h2>
+<p>You can change the firewall behaviour in your app settings. 
+If the request is blocked it will yield a 401 error. </p>
+
+<p><img src="images/firewall_options-7d0959a4.png" alt="" /></p>
+<h2 id='getting-started'>Getting started</h2>
+<p>Having your Suzan api key and you account setup you can use our firewall api with few lines of code. </p>
+
+<blockquote>
+<p>To use llm with our firewall use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">SuzanAI</span> <span class="kn">import</span> <span class="n">Firewall</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">"suz_prodkey_*****"</span>
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"suzan_key"</span><span class="p">]</span> <span class="o">=</span> <span class="n">secret</span>
+<span class="n">my_messages</span> <span class="o">=</span> 
+  <span class="p">{</span>
+    <span class="s">"model"</span><span class="p">:</span><span class="s">"gpt-3.5-turbo"</span><span class="p">,</span>
+    <span class="s">"messages"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s">"content"</span><span class="p">:</span><span class="s">"Hello this is a test query"</span><span class="p">,</span>
+            <span class="s">"role"</span><span class="p">:</span> <span class="s">"user"</span>
+
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">"content"</span><span class="p">:</span><span class="s">"Hello"</span><span class="p">,</span>
+            <span class="s">"role"</span><span class="p">:</span> <span class="s">"system"</span>
+
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">new_message</span> <span class="o">=</span> <span class="n">Firewall</span><span class="p">.</span><span class="n">complete</span><span class="p">(</span><span class="n">my_messages</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Firewall</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="s">"id"</span><span class="p">:</span> <span class="s">"e163270a-9caa-44ef-ba1b-ffecf43c3a77"</span><span class="p">,</span>
+    <span class="s">"object"</span><span class="p">:</span> <span class="s">"chat.completion"</span><span class="p">,</span>
+    <span class="s">"created"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"model"</span><span class="p">:</span> <span class="s">"gpt-3.5-turbo"</span><span class="p">,</span>
+    <span class="s">"system_fingerprint"</span><span class="p">:</span> <span class="s">"fp_XXXXXXXXX"</span><span class="p">,</span>
+    <span class="s">"choices"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">"index"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">"message"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">"role"</span><span class="p">:</span> <span class="s">"assistant"</span><span class="p">,</span>
+                <span class="s">"content"</span><span class="p">:</span> <span class="s">"Hello"</span>
+            <span class="p">},</span>
+            <span class="s">"finish_reason"</span><span class="p">:</span> <span class="s">"stop"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">"usage"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"prompt_tokens"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"completion_tokens"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"total_tokens"</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl http://prod.suzan.ai/api/v1_0/dlp/completion_openai_format/ <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer {suzan_secret_key}"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "messages":[
+      {
+        "content":"Hello this is a test query",
+        "role": "user"
+
+    },
+    {
+        "content":"Hello",
+        "role": "system"
+
+    }
+    ]
+}'</span> 
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
