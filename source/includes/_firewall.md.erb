@@ -1,0 +1,89 @@
+
+# Firewall
+## Introduction
+You can use our LLM firewall to filter the data that you send to your llm providers. 
+We can also provide dynamic censorship, where the data that had been replaced in the input is also replace in the output. 
+
+<%= image_tag "images/firewall_high_level.png" %>
+## Filter behaviour configuration 
+You can change the firewall behaviour in your app settings. 
+If the request is blocked it will yield a 401 error. 
+
+<%= image_tag "images/firewall_options.png" %>
+
+## Getting started
+
+Having your Suzan api key and you account setup you can use our firewall api with few lines of code. 
+
+> To use llm with our firewall use this code:
+
+```python
+import os
+from SuzanAI import Firewall
+secret = "suz_prodkey_*****"
+os.environ["suzan_key"] = secret
+my_messages = 
+  {
+    "model":"gpt-3.5-turbo",
+    "messages":[
+        {
+            "content":"Hello this is a test query",
+            "role": "user"
+
+        },
+        {
+            "content":"Hello",
+            "role": "system"
+
+        }
+    ]
+}
+new_message = Firewall.complete(my_messages)
+print(Firewall)
+{
+    "id": "e163270a-9caa-44ef-ba1b-ffecf43c3a77",
+    "object": "chat.completion",
+    "created": 0,
+    "model": "gpt-3.5-turbo",
+    "system_fingerprint": "fp_XXXXXXXXX",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Hello"
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+    }
+}
+```
+
+```shell
+curl http://prod.suzan.ai/api/v1_0/dlp/completion_openai_format/ \
+    -X POST \
+  -H "Authorization: Bearer {suzan_secret_key}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "messages":[
+      {
+        "content":"Hello this is a test query",
+        "role": "user"
+
+    },
+    {
+        "content":"Hello",
+        "role": "system"
+
+    }
+    ]
+}' 
+```
+
+
+
